@@ -220,7 +220,7 @@ static_assert(!std::constructible_from<length<kilometre, int>, length<metre, int
 static_assert(!std::convertible_to<length<metre, int>, length<kilometre, int>>);  // truncating metre<int> -> kilometre<int> not allowed
 
 // converting to double always OK
-static_assert(std::constructible_from<length<metre>, length<kilometre, int>>);  
+static_assert(std::constructible_from<length<metre>, length<kilometre, int>>);
 static_assert(std::convertible_to<length<kilometre, int>, length<metre>>);
 static_assert(std::constructible_from<length<kilometre>, length<metre, int>>);
 static_assert(std::convertible_to<length<metre, int>, length<kilometre>>);
@@ -557,6 +557,17 @@ static_assert(length<kilometre, int>(321) != length<metre, int>(123000));
 static_assert(!(length<kilometre, int>(123) == length<metre, int>(321000)));
 static_assert(!(length<kilometre, int>(123) != length<metre, int>(123000)));
 
+// equivalent dimensions
+static_assert(length<centimetre, int>(123) == cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, int>(123) == cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, int>(321) != cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) == cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(321) != cgs::length<cgs::centimetre, int>(123));
+static_assert(length<metre, int>(123) == cgs::length<cgs::centimetre, int>(12300));
+static_assert(length<metre, int>(321) != cgs::length<cgs::centimetre, int>(12300));
+static_assert(std::equality_comparable_with<length<centimetre, int>, cgs::length<cgs::centimetre, double>>);
+static_assert(std::equality_comparable_with<length<centimetre, int>, cgs::length<cgs::centimetre, int>>);
+
 // dimensionless
 
 static_assert(quantity{123} == 123);
@@ -618,6 +629,36 @@ static_assert(!(length<kilometre, int>(321) <= length<metre, int>(123000)));
 static_assert(!(length<kilometre, int>(123) > length<metre, int>(321000)));
 static_assert(!(length<kilometre, int>(123) > length<metre, int>(123000)));
 static_assert(!(length<kilometre, int>(123) >= length<metre, int>(321000)));
+
+// equivalent dimensions
+static_assert(length<centimetre, int>(123) < cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, int>(123) <= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, int>(123) < cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, int>(123) <= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, int>(123) <= cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, int>(321) > cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, int>(123) >= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, int>(321) >= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) < cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, double>(123) <= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) <= cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, double>(321) > cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) >= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(321) >= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) < cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, double>(123) <= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) <= cgs::length<cgs::centimetre, int>(321));
+static_assert(length<centimetre, double>(321) > cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(123) >= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<centimetre, double>(321) >= cgs::length<cgs::centimetre, int>(123));
+static_assert(length<metre, int>(123) < cgs::length<cgs::centimetre, int>(32100));
+static_assert(length<metre, int>(123) <= cgs::length<cgs::centimetre, int>(12300));
+static_assert(length<metre, int>(123) <= cgs::length<cgs::centimetre, int>(32100));
+static_assert(length<metre, int>(321) > cgs::length<cgs::centimetre, int>(12300));
+static_assert(length<metre, int>(123) >= cgs::length<cgs::centimetre, int>(12300));
+static_assert(length<metre, int>(321) >= cgs::length<cgs::centimetre, int>(12300));
+static_assert(std::totally_ordered_with<length<centimetre, int>, cgs::length<cgs::centimetre, double>>);
+static_assert(std::totally_ordered_with<length<centimetre, int>, cgs::length<cgs::centimetre, int>>);
 
 // dimensionless
 

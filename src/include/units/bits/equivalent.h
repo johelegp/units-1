@@ -41,7 +41,7 @@ struct equivalent_impl<T, T> : std::true_type {
 // units
 
 template<Unit U1, Unit U2>
-struct equivalent_impl<U1, U2> : std::is_base_of<U1, U2>, std::is_base_of<U2, U1> {};
+struct equivalent_impl<U1, U2> : std::disjunction<std::is_base_of<U1, U2>, std::is_base_of<U2, U1>> {};
 
 
 // dimensions
