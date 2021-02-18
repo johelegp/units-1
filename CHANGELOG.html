@@ -182,7 +182,7 @@
 <ul class="simple">
 <li><p>(!) refactor: <code class="docutils literal notranslate"><span class="pre">ScalableNumber</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">QuantityValue</span></code></p></li>
 <li><p>(!) refactor: output stream operators moved to the <code class="docutils literal notranslate"><span class="pre">units/quantity_io.h</span></code> header file</p></li>
-<li><p>refactor: <code class="docutils literal notranslate"><span class="pre">quantity_point</span></code> (partially) updated to reflect latest changes to <code class="docutils literal notranslate"><span class="pre">quantity</span></code></p></li>
+<li><p>refactor: quantity (kind) point updated to reflect latest changes to <code class="docutils literal notranslate"><span class="pre">quantity</span></code></p></li>
 <li><p>refactor: basic concepts, <code class="docutils literal notranslate"><span class="pre">quantity</span></code> and <code class="docutils literal notranslate"><span class="pre">quantity_cast</span></code> refactored</p></li>
 <li><p>refactor: <code class="docutils literal notranslate"><span class="pre">abs()</span></code> definition refactored to be more explicit about the return type</p></li>
 <li><p>feat: quantity (point) kind support added (thanks <a class="reference external" href="https://github.com/johelegp">&#64;johelegp</a>)</p></li>
@@ -200,6 +200,7 @@
 <li><p>fix: quantity’s operators fixed to behave like the underlying types do</p></li>
 <li><p>fix: <code class="docutils literal notranslate"><span class="pre">quantity_cast()</span></code> fixed to work correctly with representation types not convertible from <code class="docutils literal notranslate"><span class="pre">std::intmax_t</span></code></p></li>
 <li><p>fix: ambiguous case for empty type list resolved</p></li>
+<li><p>fix: downcasting facility for non-default-constructible types</p></li>
 <li><p>(!) build: <code class="docutils literal notranslate"><span class="pre">BUILD_DOCS</span></code> CMake option renamed to <code class="docutils literal notranslate"><span class="pre">UNITS_BUILD_DOCS</span></code></p></li>
 <li><p>build: doxygen updated to 1.8.20</p></li>
 <li><p>build: catch2 updated to 2.13.4</p></li>

@@ -3,7 +3,7 @@
 - **0.7.0 WIP**
   - (!) refactor: `ScalableNumber` renamed to `QuantityValue`
   - (!) refactor: output stream operators moved to the `units/quantity_io.h` header file
-  - refactor: `quantity_point` (partially) updated to reflect latest changes to `quantity`
+  - refactor: quantity (kind) point updated to reflect latest changes to `quantity`
   - refactor: basic concepts, `quantity` and `quantity_cast` refactored
   - refactor: `abs()` definition refactored to be more explicit about the return type
   - feat: quantity (point) kind support added (thanks [@johelegp](https://github.com/johelegp))
@@ -21,6 +21,7 @@
   - fix: quantity's operators fixed to behave like the underlying types do
   - fix: `quantity_cast()` fixed to work correctly with representation types not convertible from `std::intmax_t`
   - fix: ambiguous case for empty type list resolved
+  - fix: downcasting facility for non-default-constructible types
   - (!) build: `BUILD_DOCS` CMake option renamed to `UNITS_BUILD_DOCS`
   - build: doxygen updated to 1.8.20
   - build: catch2 updated to 2.13.4
