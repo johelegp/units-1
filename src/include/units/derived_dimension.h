@@ -22,6 +22,10 @@
 
 #pragma once
 
+#include <algorithm>
+#include <array>
+#include <utility>
+#include <boost/mp11/algorithm.hpp>
 #include <units/base_dimension.h>
 #include <units/bits/base_units_ratio.h>
 #include <units/bits/derived_dimension_base.h>
@@ -35,6 +39,21 @@ namespace units {
 
 namespace detail {
 
+template<Exponent... Es>
+constexpr auto sort(exponent_list<Es...>) {
+  if constexpr (sizeof...(Es) == 0)
+    return exponent_list<>{};
+  else
+    return []<std::size_t... I>(std::index_sequence<I...>) {
+      constexpr std::array indexed_symbols = [] {
+        std::array is{std::pair{I, Es::dimension::symbol.to_string_view()}...};
+        std::ranges::sort(is, {}, &decltype(is)::value_type::second);
+        return is;
+      }();
+      return exponent_list<boost::mp11::mp_at_c<exponent_list<Es...>, indexed_symbols[I].first>...>{};
+    }(std::index_sequence_for<Es...>{});
+}
+
 /**
  * @brief Converts user provided derived dimension specification into a valid units::derived_dimension_base definition
  * 
@@ -46,7 +65,7 @@ namespace detail {
  *    this base dimension.
  */
 template<Exponent... Es>
-using make_dimension = TYPENAME to_derived_dimension_base<typename dim_consolidate<type_list_sort<typename dim_unpack<Es...>::type, exponent_less>>::type>::type;
+using make_dimension = TYPENAME to_derived_dimension_base<typename dim_consolidate<decltype(sort(typename dim_unpack<Es...>::type{}))>::type>::type;
 
 }  // namespace detail
 

@@ -25,6 +25,7 @@
 #include <units/bits/external/hacks.h>
 #include <cstdlib>
 #include <compare>
+#include <string_view>
 
 // TODO use <algorithm> when moved to C++20 modules (parsing takes too long for each translation unit)
 
@@ -61,6 +62,8 @@ struct basic_fixed_string {
   [[nodiscard]] constexpr const_iterator begin() const noexcept { return data(); }
   [[nodiscard]] constexpr iterator end() noexcept { return data() + size(); }
   [[nodiscard]] constexpr const_iterator end() const noexcept { return data() + size(); }
+
+  [[nodiscard]] constexpr auto to_string_view() const noexcept { return std::basic_string_view{data_}; }
 
   template<std::size_t N2>
   [[nodiscard]] constexpr friend basic_fixed_string<CharT, N + N2> operator+(
