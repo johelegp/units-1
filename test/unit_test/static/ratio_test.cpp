@@ -83,6 +83,10 @@ static_assert(sqrt(ratio(9, 1, 2)) == ratio(3, 1, 1));
 static_assert(cbrt(ratio(27, 1, 3)) == ratio(3, 1, 1));
 static_assert(cbrt(ratio(27, 1, 2)) == ratio(13, 1, 0));
 
+// add
+static_assert((ratio(1) += ratio(1)) == ratio(2));
+static_assert((ratio(1, 2) += ratio(1, 2)) == ratio(1));
+
 // common_ratio
 static_assert(common_ratio(ratio(1), ratio(1000)) == ratio(1));
 static_assert(common_ratio(ratio(1000), ratio(1)) == ratio(1));

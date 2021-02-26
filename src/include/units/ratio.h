@@ -59,6 +59,13 @@ struct ratio {
 
   [[nodiscard]] friend constexpr bool operator==(const ratio&, const ratio&) = default;
 
+  constexpr ratio& operator+=(const ratio& rhs)
+  {
+    gsl_Expects(exp == 0 && rhs.exp == 0);
+    return *this = ratio(detail::safe_multiply(num, rhs.den) + detail::safe_multiply(rhs.num, den),
+                         detail::safe_multiply(den, rhs.den));
+  }
+
   [[nodiscard]] friend constexpr ratio operator*(const ratio& lhs, const ratio& rhs)
   {
     const std::intmax_t gcd1 = std::gcd(lhs.num, rhs.den);

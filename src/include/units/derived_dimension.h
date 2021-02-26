@@ -24,7 +24,10 @@
 
 #include <algorithm>
 #include <array>
+#include <cstdint>
+#include <functional>
 #include <utility>
+#include <variant>
 #include <boost/mp11/algorithm.hpp>
 #include <units/base_dimension.h>
 #include <units/bits/base_units_ratio.h>
@@ -54,6 +57,43 @@ constexpr auto sort(exponent_list<Es...>) {
     }(std::index_sequence_for<Es...>{});
 }
 
+template<Exponent... Es>
+constexpr auto consolidate_dimensions(exponent_list<Es...>) {
+  if constexpr (sizeof...(Es) == 0)
+    return exponent_list<>{};
+  else {
+    using V = boost::mp11::mp_unique<std::variant<std::monostate, typename Es::dimension...>>;
+    struct exp {
+      V dimension;
+      ratio r;
+    };
+    struct consolidated_dims {
+      std::array<exp, sizeof...(Es)> exps;
+      std::ptrdiff_t size;
+    };
+    constexpr consolidated_dims cdims = [] {
+      constexpr std::array exponents{exp{V{typename Es::dimension{}}, ratio{Es::num, Es::den}}...};
+      std::array consolidated_buffer{(typename Es::dimension{}, exp{{}, ratio{0}})...};
+      auto consolidated_first{consolidated_buffer.begin()};
+      for (const auto& e : exponents) {
+        if (std::get_if<std::monostate>(&consolidated_first->dimension))
+          *consolidated_first = e;
+        else if (consolidated_first->dimension.index() == e.dimension.index())
+          consolidated_first->r += e.r;
+        else
+          *++consolidated_first = e;
+      }
+      consolidated_first = std::ranges::remove_if(
+          consolidated_buffer.begin(), ++consolidated_first, std::not_fn(&ratio::num), &exp::r).begin();
+      return consolidated_dims{consolidated_buffer, consolidated_first - consolidated_buffer.begin()};
+    }();
+    return [&]<std::size_t... CI>(std::index_sequence<CI...>) {
+      return exponent_list<exponent<boost::mp11::mp_at_c<V, cdims.exps[CI].dimension.index()>,
+                           cdims.exps[CI].r.num, cdims.exps[CI].r.den>...>{};
+    }(std::make_index_sequence<cdims.size>{});
+  }
+}
+
 /**
  * @brief Converts user provided derived dimension specification into a valid units::derived_dimension_base definition
  * 
@@ -65,7 +105,7 @@ constexpr auto sort(exponent_list<Es...>) {
  *    this base dimension.
  */
 template<Exponent... Es>
-using make_dimension = TYPENAME to_derived_dimension_base<typename dim_consolidate<decltype(sort(typename dim_unpack<Es...>::type{}))>::type>::type;
+using make_dimension = TYPENAME to_derived_dimension_base<decltype(consolidate_dimensions(sort(typename dim_unpack<Es...>::type{})))>::type;
 
 }  // namespace detail
 
