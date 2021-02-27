@@ -55,7 +55,11 @@ constexpr auto sort(exponent_list<Es...>) {
       }();
       return exponent_list<boost::mp11::mp_at_c<exponent_list<Es...>, indexed_symbols[I].first>...>{};
     }(std::index_sequence_for<Es...>{});
-}
+} /* Goal:
+constexpr std::vector<exponents> sort(std::vector<exponents> exps) {
+  std::ranges::sort(exps, {}, &dimension::symbol, &exponent::dimension);
+  return exps;
+} */
 
 template<Exponent... Es>
 constexpr auto consolidate_dimensions(exponent_list<Es...>) {
@@ -92,7 +96,10 @@ constexpr auto consolidate_dimensions(exponent_list<Es...>) {
                            cdims.exps[CI].r.num, cdims.exps[CI].r.den>...>{};
     }(std::make_index_sequence<cdims.size>{});
   }
-}
+} /* Goal:
+constexpr std::vector<exponents> consolidate(std::vector<exponents> exps) {
+  return >>exps |> group_by(&exponent::dimension) |> accumulate(&exponents::r);
+} */
 
 /**
  * @brief Converts user provided derived dimension specification into a valid units::derived_dimension_base definition
