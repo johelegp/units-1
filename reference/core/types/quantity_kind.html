@@ -202,7 +202,7 @@
 <h1>Quantity Kind<a class="headerlink" href="#quantity-kind" title="Permalink to this headline">¶</a></h1>
 <dl class="cpp class">
 <dt id="_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE">
-<span id="_CPPv3I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE"></span><span id="_CPPv2I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE"></span><span class="pre">template&lt;</span><a class="reference internal" href="../concepts.html#_CPPv4I0EN5units4KindE" title="units::Kind"><span class="pre">Kind</span></a> <code class="sig-name descname"><span class="pre">K</span></code><span class="pre">,</span> <a class="reference internal" href="../concepts.html#_CPPv4I00EN5units6UnitOfE" title="units::UnitOf"><span class="pre">UnitOf</span></a><span class="pre">&lt;</span><em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE" title="units::quantity_kind::K"><span class="pre">K</span></a><span class="pre">::</span><span class="pre">dimension</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">U</span></code><span class="pre">,</span> <a class="reference internal" href="../concepts.html#_CPPv4I0EN5units13QuantityValueE" title="units::QuantityValue"><span class="pre">QuantityValue</span></a> <code class="sig-name descname"><span class="pre">Rep</span></code> <span class="pre">=</span> <span class="pre">double</span><span class="pre">&gt;</span><br /><span class="target" id="classunits_1_1quantity__kind"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><a class="reference internal" href="../../systems/physical/si/typographic/length.html#_CPPv45units" title="units"><span class="pre">units</span></a><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">quantity_kind</span></code><a class="headerlink" href="#_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE"></span><span id="_CPPv2I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE"></span><span class="pre">template&lt;</span><a class="reference internal" href="../concepts.html#_CPPv4I0EN5units4KindE" title="units::Kind"><span class="pre">Kind</span></a> <code class="sig-name descname"><span class="pre">K</span></code><span class="pre">,</span> <a class="reference internal" href="../concepts.html#_CPPv4I00EN5units6UnitOfE" title="units::UnitOf"><span class="pre">UnitOf</span></a><span class="pre">&lt;</span><em class="property"><span class="pre">typename</span></em> <a class="reference internal" href="#_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE" title="units::quantity_kind::K"><span class="pre">K</span></a><span class="pre">::</span><span class="pre">dimension</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">U</span></code><span class="pre">,</span> <a class="reference internal" href="../concepts.html#_CPPv4I0EN5units13QuantityValueE" title="units::QuantityValue"><span class="pre">QuantityValue</span></a> <code class="sig-name descname"><span class="pre">Rep</span></code> <span class="pre">=</span> <span class="pre">double</span><span class="pre">&gt;</span><br /><span class="target" id="classunits_1_1quantity__kind"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><a class="reference internal" href="../../systems/isq/si/time.html#_CPPv45units" title="units"><span class="pre">units</span></a><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">quantity_kind</span></code><a class="headerlink" href="#_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>A quantity kind. </p>
 <p>A quantity with more specific usage as determined by its kind. See <a class="reference external" href="https://jcgm.bipm.org/vim/en/1.2.html">https://jcgm.bipm.org/vim/en/1.2.html</a> and NOTE 1 at <a class="reference external" href="https://jcgm.bipm.org/vim/en/1.1.html">https://jcgm.bipm.org/vim/en/1.1.html</a>.</p>
 <p><dl class="simple">
@@ -336,17 +336,47 @@
 
 <dl class="cpp function">
 <dt>
+<span class="target" id="classunits_1_1quantity__kind_1a6fcd0b18c98e4bebed4c488008dc6f21"></span><code class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Rep2&gt;</span> <span class="pre">inline</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator*=</span> <span class="pre">(const</span> <span class="pre">quantity_kind&lt;</span> <span class="pre">downcast_kind&lt;</span> <span class="pre">K,</span> <span class="pre">dim_one</span> <span class="pre">&gt;,</span> <span class="pre">units::one,</span> <span class="pre">Rep2</span> <span class="pre">&gt;</span> <span class="pre">&amp;rhs)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt>
 <span class="target" id="classunits_1_1quantity__kind_1a244e7b04f8de6c5df1a26ee9f2ac6fbe"></span><code class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Rep2&gt;</span> <span class="pre">inline</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator/=</span> <span class="pre">(const</span> <span class="pre">Rep2</span> <span class="pre">&amp;rhs)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classunits_1_1quantity__kind_1acd7e4605e9090afcd705c527e6623b43"></span><code class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Rep2&gt;</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator%=</span> <span class="pre">(const</span> <span class="pre">Rep2</span> <span class="pre">&amp;rhs)</span> <span class="pre">requires(!Quantity&lt;</span> <span class="pre">Rep2</span> <span class="pre">&gt;)</span> <span class="pre">&amp;&amp;requires(quantity_type</span> <span class="pre">q</span></code></dt>
+<span class="target" id="classunits_1_1quantity__kind_1a4f7dcfbf95e28c32fec65149dcb939f2"></span><code class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Rep2&gt;</span> <span class="pre">inline</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator/=</span> <span class="pre">(const</span> <span class="pre">quantity_kind&lt;</span> <span class="pre">downcast_kind&lt;</span> <span class="pre">K,</span> <span class="pre">dim_one</span> <span class="pre">&gt;,</span> <span class="pre">units::one,</span> <span class="pre">Rep2</span> <span class="pre">&gt;</span> <span class="pre">&amp;rhs)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classunits_1_1quantity__kind_1a0a429156b61d486ce3ffb969a172fd5a"></span><code class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Rep2&gt;</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator%=</span> <span class="pre">(const</span> <span class="pre">Rep2</span> <span class="pre">&amp;rhs)</span> <span class="pre">requires(!Quantity&lt;</span> <span class="pre">Rep2</span> <span class="pre">&gt;||Dimensionless&lt;</span> <span class="pre">Rep2</span> <span class="pre">&gt;)</span> <span class="pre">&amp;&amp;requires(quantity_type</span> <span class="pre">q</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classunits_1_1quantity__kind_1aa96c84d67eabcff6f989fad68417b9f7"></span><code class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Rep2&gt;</span> <span class="pre">inline</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator%=</span> <span class="pre">(const</span> <span class="pre">quantity_kind&lt;</span> <span class="pre">downcast_kind&lt;</span> <span class="pre">K,</span> <span class="pre">dim_one</span> <span class="pre">&gt;,</span> <span class="pre">units::one,</span> <span class="pre">Rep2</span> <span class="pre">&gt;</span> <span class="pre">&amp;rhs)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt>
 <span class="target" id="classunits_1_1quantity__kind_1a47f5982b3eac7c5afac984984f584b34"></span><code class="sig-name descname"><span class="pre">inline</span> <span class="pre">constexpr</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;</span> <span class="pre">operator%=</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classunits_1_1quantity__kind_1ac81e18572bfdd4c944149dd5042c76b7"></span><code class="sig-name descname"><span class="pre">return</span> <span class="pre">detail::make_quantity_kind</span> <span class="pre">(qk.common()/v)</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classunits_1_1quantity__kind_1aa7e0560cb96608ee9744032f197a0717"></span><code class="sig-name descname"><span class="pre">return</span> <span class="pre">detail::downcasted_kind</span> <span class="pre">(v/qk.common())</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="classunits_1_1quantity__kind_1abc54f4be02b5461dced5223e79bd9850"></span><code class="sig-name descname"><span class="pre">return</span> <span class="pre">detail::make_quantity_kind</span> <span class="pre">(qk.common()</span> <span class="pre">%</span> <span class="pre">v)</span></code></dt>
 <dd></dd></dl>
 
 </div>
@@ -355,6 +385,11 @@
 <dl class="cpp var">
 <dt>
 <span class="target" id="classunits_1_1quantity__kind_1a018dfb93aad811cea628bf8d8727a0fe"></span><code class="sig-name descname"><span class="pre">return</span> <span class="pre">*</span> <span class="pre">this</span>&#160; <span class="pre">{</span>&#160;&#160;&#160; <span class="pre">++q_</span></code></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt>
+<span class="target" id="classunits_1_1quantity__kind_1a8002cc2806e33c8c42519bd92c6f9b31"></span><code class="sig-name descname"><span class="pre">q_</span>&#160;&#160; <span class="pre">=</span> <span class="pre">rhs</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
@@ -390,27 +425,27 @@
 <p class="breathe-sectiondef-title rubric">Friends</p>
 <dl class="cpp function">
 <dt>
-<span class="target" id="classunits_1_1quantity__kind_1a16ca205b0aae3b2dd15780611cf138c0"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator*</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk,</span> <span class="pre">const</span> <span class="pre">Value</span> <span class="pre">&amp;v)</span> <span class="pre">requires</span> <span class="pre">requires</span></code></dt>
+<span class="target" id="classunits_1_1quantity__kind_1ad08c4b9c51f1b08646fc31ced60195ce"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator*</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk,</span> <span class="pre">const</span> <span class="pre">Value</span> <span class="pre">&amp;v)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classunits_1_1quantity__kind_1a80b47e72db364a873f2c1fa295887025"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator*</span> <span class="pre">(const</span> <span class="pre">Value</span> <span class="pre">&amp;v,</span> <span class="pre">const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk)</span> <span class="pre">requires</span> <span class="pre">requires</span></code></dt>
+<span class="target" id="classunits_1_1quantity__kind_1a4822a810bd4a0f80dfcffd53a4ed42ae"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator*</span> <span class="pre">(const</span> <span class="pre">Value</span> <span class="pre">&amp;v,</span> <span class="pre">const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classunits_1_1quantity__kind_1ad0fc687196ccaf950f52759e80d16bf3"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator/</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk,</span> <span class="pre">const</span> <span class="pre">Value</span> <span class="pre">&amp;v)</span> <span class="pre">requires</span> <span class="pre">requires</span></code></dt>
+<span class="target" id="classunits_1_1quantity__kind_1a2a8f38739b24a7251104206427d52507"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator/</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk,</span> <span class="pre">const</span> <span class="pre">Value</span> <span class="pre">&amp;v)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classunits_1_1quantity__kind_1af45689d19bf2b03bfa76709c7da8bfac"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator/</span> <span class="pre">(const</span> <span class="pre">Value</span> <span class="pre">&amp;v,</span> <span class="pre">const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk)</span> <span class="pre">requires</span> <span class="pre">requires</span></code></dt>
+<span class="target" id="classunits_1_1quantity__kind_1aa44bd675910b973527ed51eace84fc3e"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator/</span> <span class="pre">(const</span> <span class="pre">Value</span> <span class="pre">&amp;v,</span> <span class="pre">const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
 <dt>
-<span class="target" id="classunits_1_1quantity__kind_1a9cf3b49e171662a03dee61ebb0dc9da4"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator%</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk,</span> <span class="pre">const</span> <span class="pre">Value</span> <span class="pre">&amp;v)</span> <span class="pre">requires</span> <span class="pre">requires</span></code></dt>
+<span class="target" id="classunits_1_1quantity__kind_1ac4f809cb6bd895e3808357249840ff04"></span><code class="sig-name descname"><span class="pre">template&lt;QuantityValue</span> <span class="pre">Value&gt;</span> <span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">constexpr</span> <span class="pre">friend</span> <span class="pre">QuantityKind</span> <span class="pre">auto</span> <span class="pre">operator%</span> <span class="pre">(const</span> <span class="pre">quantity_kind</span> <span class="pre">&amp;qk,</span> <span class="pre">const</span> <span class="pre">Value</span> <span class="pre">&amp;v)</span> <span class="pre">requires</span> <span class="pre">requires(quantity_type</span> <span class="pre">q)</span></code></dt>
 <dd></dd></dl>
 
 </div>

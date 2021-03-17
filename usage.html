@@ -213,8 +213,13 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This library targets C++23 and extensively uses C++20 features that is why, as of now, it compiles correctly
-only with gcc-10, Visual Studio 16.7, and newer.</p>
+<p>This library targets C++23/26 and extensively uses C++20 features. This is why it requires the latest C++
+compilers. The following compilers (or newer) are supported:</p>
+<ul class="simple">
+<li><p>gcc-10</p></li>
+<li><p>clang-12</p></li>
+<li><p>Visual Studio 16.9</p></li>
+</ul>
 </div>
 <div class="section" id="repository-structure-and-dependencies">
 <h2>Repository Structure and Dependencies<a class="headerlink" href="#repository-structure-and-dependencies" title="Permalink to this headline">¶</a></h2>
@@ -228,6 +233,7 @@ but until then it depends on:</p>
 <ul>
 <li><p><a class="reference external" href="https://github.com/fmtlib/fmt">{fmt}</a> to provide text formatting of quantities.</p></li>
 <li><p><a class="reference external" href="https://github.com/gsl-lite/gsl-lite">gsl-lite</a> to verify runtime contracts with the <code class="docutils literal notranslate"><span class="pre">gsl_Expects</span></code> macro.</p></li>
+<li><p>[only for clang-12 with libc++] <a class="reference external" href="https://github.com/ericniebler/range-v3">range-v3</a> to provide needed C++20 concepts and utilities.</p></li>
 </ul>
 </li>
 </ul>
@@ -501,8 +507,8 @@ differences:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
 conan install .. -pr &lt;your_conan_profile&gt; -s compiler.cppstd<span class="o">=</span><span class="m">20</span> -b<span class="o">=</span>outdated -u
-cmake .. -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>conan_toolchain.cmake
-cmake --build . --config Release
+cmake .. -DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>conan_toolchain.cmake
+cmake --build .
 </pre></div>
 </div>
 </div></blockquote>
@@ -531,8 +537,8 @@ build all of the source code and documentation, and run unit tests.</p>
 <p>If you prefer to build the project via CMake rather then Conan, then you should replace the last <code class="docutils literal notranslate"><span class="pre">conan</span> <span class="pre">build</span> <span class="pre">..</span></code>
 step with the CMake build:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
-cmake .. -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>conan_toolchain.cmake
-cmake --build . --config Release
+cmake .. -DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>conan_toolchain.cmake
+cmake --build .
 ctest
 </pre></div>
 </div>
