@@ -66,15 +66,20 @@
 
 #endif
 
-#if UNITS_COMP_CLANG == 12 && UNITS_LIBCXX
+#if UNITS_COMP_CLANG && UNITS_LIBCXX
 
 #include <concepts/compare.hpp>
-#include <concepts/concepts.hpp>
 #include <range/v3/functional/comparisons.hpp>
+
+#if UNITS_COMP_CLANG == 12
+
+#include <concepts/concepts.hpp>
 #include <range/v3/iterator.hpp>
 #include <range/v3/range/concepts.hpp>
 #include <range/v3/algorithm/lower_bound.hpp>
 #include <range/v3/algorithm/transform.hpp>
+
+#endif
 
 #endif
 
@@ -101,6 +106,12 @@ concept default_constructible = constructible_from<T>;
 
 #elif UNITS_COMP_CLANG && UNITS_LIBCXX
 
+using concepts::three_way_comparable;
+using concepts::three_way_comparable_with;
+using ::ranges::compare_three_way;
+
+#if UNITS_COMP_CLANG == 12
+
 // concepts
 using concepts::common_with;
 using concepts::constructible_from;
@@ -112,11 +123,7 @@ using concepts::equality_comparable_with;
 using concepts::integral;
 using concepts::move_constructible;
 using concepts::regular;
-using concepts::three_way_comparable;
-using concepts::three_way_comparable_with;
 using concepts::totally_ordered;
-
-using ranges::compare_three_way;
 
 namespace ranges {
 
@@ -164,13 +171,13 @@ constexpr bool cmp_equal(T t, U u) noexcept
   else
       return u < 0 ? false : t == UU(u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_not_equal(T t, U u) noexcept
 {
   return !cmp_equal(t, u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_less(T t, U u) noexcept
 {
@@ -183,19 +190,19 @@ constexpr bool cmp_less(T t, U u) noexcept
   else
       return u < 0 ? false : t < UU(u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_greater(T t, U u) noexcept
 {
   return cmp_less(u, t);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_less_equal(T t, U u) noexcept
 {
   return !cmp_greater(t, u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_greater_equal(T t, U u) noexcept
 {
@@ -208,6 +215,8 @@ constexpr bool in_range(T t) noexcept
   return std::cmp_greater_equal(t, std::numeric_limits<R>::min()) &&
         std::cmp_less_equal(t, std::numeric_limits<R>::max());
 }
+
+#endif
 
 #endif
 
