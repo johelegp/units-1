@@ -66,7 +66,7 @@
 
 #endif
 
-#if UNITS_COMP_CLANG == 12 && UNITS_LIBCXX
+#if UNITS_COMP_CLANG && UNITS_LIBCXX
 
 #include <concepts/compare.hpp>
 #include <concepts/concepts.hpp>
@@ -102,11 +102,17 @@ concept default_constructible = constructible_from<T>;
 #elif UNITS_COMP_CLANG && UNITS_LIBCXX
 
 // concepts
-using concepts::common_with;
+
+#if UNITS_LIBCXX < 13'000
+
 using concepts::constructible_from;
 using concepts::convertible_to;
-using concepts::copy_constructible;
 using concepts::derived_from;
+
+#endif
+
+using concepts::common_with;
+using concepts::copy_constructible;
 using concepts::equality_comparable;
 using concepts::equality_comparable_with;
 using concepts::integral;
@@ -143,14 +149,18 @@ concept default_initializable =
     requires { T{}; } &&
     requires { ::new (static_cast<void*>(nullptr)) T; };
 
+#if UNITS_LIBCXX < 13'000
+
 template<class F, class... Args>
 concept invocable =
 requires(F&& f, Args&&... args) {
-  std::invoke(std::forward<F>(f), std::forward<Args>(args)...);
+ std::invoke(std::forward<F>(f), std::forward<Args>(args)...);
 };
 
 template<class F, class... Args>
 concept regular_invocable = invocable<F, Args...>;
+
+#endif
 
 template<class T, class U>
 constexpr bool cmp_equal(T t, U u) noexcept
@@ -164,13 +174,13 @@ constexpr bool cmp_equal(T t, U u) noexcept
   else
       return u < 0 ? false : t == UU(u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_not_equal(T t, U u) noexcept
 {
   return !cmp_equal(t, u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_less(T t, U u) noexcept
 {
@@ -183,19 +193,19 @@ constexpr bool cmp_less(T t, U u) noexcept
   else
       return u < 0 ? false : t < UU(u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_greater(T t, U u) noexcept
 {
   return cmp_less(u, t);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_less_equal(T t, U u) noexcept
 {
   return !cmp_greater(t, u);
 }
- 
+
 template<class T, class U>
 constexpr bool cmp_greater_equal(T t, U u) noexcept
 {
