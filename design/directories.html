@@ -4,15 +4,18 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Library Directories Structure &mdash; mp-units 0.7.0 documentation</title>
+  <title>Library Directories Structure &mdash; mp-units 0.8.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
@@ -28,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -62,7 +66,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.8.0
               </div>
             
           
@@ -91,16 +95,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../framework.html">Framework Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../use_cases.html">Use Cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../design.html">Design Deep Dive</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Library Directories Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantity.html">quantity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity_kind.html">quantity_kind</a></li>
 <li class="toctree-l2"><a class="reference internal" href="downcasting.html">The Downcasting Facility</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation And Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference:</span></p>
@@ -182,14 +187,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="library-directories-structure">
+  <section id="library-directories-structure">
 <h1>Library Directories Structure<a class="headerlink" href="#library-directories-structure" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>units
 ├── bits
 │   └── external
-├── data
 ├── generic
-└── physical
+└── isq
+    ├── dimensions
+    ├── iec80000
     ├── natural
     └── si
         ├── cgs
@@ -225,20 +231,16 @@ proposals not related to a Physical Units library proposal.</p></li>
 <li><p><em>./units/generic</em></p>
 <ul>
 <li><p>Provides quantity types not related to any <a class="reference internal" href="../glossary.html#term-system-of-quantities"><span class="xref std std-term">system of quantities</span></a>
-(e.g. <a class="reference internal" href="../reference/systems/generic/dimensionless.html#_CPPv4I_6UnitOfI7dim_oneE_13QuantityValueEN5units13dimensionlessE" title="units::dimensionless"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">dimensionless</span></code></a>, <a class="reference internal" href="../reference/systems/generic/angle.html#_CPPv4I_6UnitOfI9dim_angleIEE_13QuantityValueEN5units5angleE" title="units::angle"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">angle</span></code></a>).</p></li>
+(e.g. <a class="reference internal" href="../reference/systems/generic/dimensionless.html#_CPPv4I_6UnitOfI7dim_oneE_14RepresentationEN5units13dimensionlessE" title="units::dimensionless"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">dimensionless</span></code></a>, <a class="reference internal" href="../reference/systems/generic/angle.html#_CPPv4I_6UnitOfI9dim_angleIEE_14RepresentationEN5units5angleE" title="units::angle"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">angle</span></code></a>).</p></li>
 </ul>
 </li>
-<li><p><em>./units/physical</em></p>
+<li><p><em>./units/isq</em></p>
 <ul>
-<li><p>Contains the definition of physical units dimensions.</p></li>
+<li><p>Contains the definition of quantity dimensions of International System of Quantities
+(<a class="reference internal" href="../glossary.html#term-ISQ"><span class="xref std std-term">ISQ</span></a>).</p></li>
 <li><p>Its subfolders provide the definitions of various
-<a class="reference internal" href="../glossary.html#term-system-of-units"><span class="xref std std-term">systems of units</span></a> with <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> being the most popular
-one.</p></li>
-</ul>
-</li>
-<li><p><em>./units/data</em></p>
-<ul>
-<li><p>Provides data information system and its dimensions (i.e. <a class="reference internal" href="../reference/systems/data/bitrate.html#_CPPv4I_6UnitOfI11dim_bitrateE_13QuantityValueEN5units4data7bitrateE" title="units::data::bitrate"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">data::bitrate</span></code></a>).</p></li>
+<a class="reference internal" href="../glossary.html#term-system-of-units"><span class="xref std std-term">systems of units</span></a> with International System of Units (<a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a>)
+being the most popular one.</p></li>
 </ul>
 </li>
 </ul>
@@ -253,7 +255,7 @@ found in <a class="reference internal" href="../reference/systems.html#systems">
 the definitions for the current system to limit the possibility of an ODR violation
 (e.g. <em>units/isq/si/si.h</em>).</p>
 </div>
-</div>
+</section>
 
 
            </div>

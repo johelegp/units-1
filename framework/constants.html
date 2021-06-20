@@ -4,15 +4,18 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quantity Constants &mdash; mp-units 0.7.0 documentation</title>
+  <title>Quantity Constants &mdash; mp-units 0.8.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
@@ -28,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -62,7 +66,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.8.0
               </div>
             
           
@@ -91,7 +95,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../framework.html">Framework Basics</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic_concepts.html">Basic Concepts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantities.html">Quantities</a></li>
@@ -107,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../use_cases.html">Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../design.html">Design Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation And Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference:</span></p>
@@ -188,10 +192,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="quantity-constants">
+  <section id="quantity-constants">
 <h1>Quantity Constants<a class="headerlink" href="#quantity-constants" title="Permalink to this headline">¶</a></h1>
 <p>In the <strong>mp-units</strong> library quantity constants are implemented as variable
-templates of <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4I_9Dimension_6UnitOfI1DE_13QuantityValueEN5units8quantityE" title="units::quantity"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity</span></code></a> types parametrized by the quantity’s representation
+templates of <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4I_9Dimension_6UnitOfI1DE_14RepresentationEN5units8quantityE" title="units::quantity"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity</span></code></a> types parametrized by the quantity’s representation
 type.</p>
 <p>Additionally, in case of the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> its physical constants are put in
 separate namespaces named after the official release of the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a>
@@ -202,7 +206,7 @@ specification release).</p>
 <p>For example the speed of light constant in <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> is defined as:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">si</span><span class="o">::</span><span class="n">si2019</span> <span class="p">{</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="n">QuantityValue</span> <span class="n">Rep</span> <span class="o">=</span> <span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span> <span class="n">Rep</span> <span class="o">=</span> <span class="kt">double</span><span class="o">&gt;</span>
 <span class="kr">inline</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">speed_of_light</span> <span class="o">=</span> <span class="n">speed</span><span class="o">&lt;</span><span class="n">metre_per_second</span><span class="p">,</span> <span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">299792458</span><span class="p">);</span>
 
 <span class="p">}</span>
@@ -211,13 +215,13 @@ specification release).</p>
 <p>The same constant defined for natural units may be provided as:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">natural</span> <span class="p">{</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="n">QuantityValue</span> <span class="n">Rep</span> <span class="o">=</span> <span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span> <span class="n">Rep</span> <span class="o">=</span> <span class="kt">double</span><span class="o">&gt;</span>
 <span class="kr">inline</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">speed_of_light</span> <span class="o">=</span> <span class="n">speed</span><span class="o">&lt;</span><span class="n">one</span><span class="p">,</span> <span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
+</section>
 
 
            </div>

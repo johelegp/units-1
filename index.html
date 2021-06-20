@@ -4,15 +4,18 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to mp-units! &mdash; mp-units 0.7.0 documentation</title>
+  <title>Welcome to mp-units! &mdash; mp-units 0.8.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
 
@@ -28,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -61,7 +65,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.8.0
               </div>
             
           
@@ -90,11 +94,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="framework.html">Framework Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_cases.html">Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Installation And Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference:</span></p>
@@ -174,7 +178,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-mp-units">
+  <section id="welcome-to-mp-units">
 <h1>Welcome to mp-units!<a class="headerlink" href="#welcome-to-mp-units" title="Permalink to this headline">¶</a></h1>
 <p><strong>mp-units</strong> is a compile-time enabled Modern C++ library that provides compile-time dimensional
 analysis and unit/quantity manipulation. Source code is hosted on <a class="reference external" href="https://github.com/mpusz/units">GitHub</a>
@@ -206,16 +210,6 @@ compilers. The following compilers (or newer) are supported:</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#repository-structure-and-dependencies">Repository Structure and Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#obtaining-dependencies">Obtaining Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#build-options">Build Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#installation-and-reuse">Installation and Reuse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#contributing-or-just-building-all-the-tests-examples-and-documentation">Contributing (or just building all the tests, examples, and documentation)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#packaging">Packaging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#uploading-mp-units-package-to-the-conan-server">Uploading <strong>mp-units</strong> Package to the Conan Server</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="framework.html">Framework Basics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="framework/basic_concepts.html">Basic Concepts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="framework/quantities.html">Quantities</a></li>
@@ -241,24 +235,26 @@ compilers. The following compilers (or newer) are supported:</p>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design Deep Dive</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="design/directories.html">Library Directories Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design/quantity.html">quantity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design/quantity_kind.html">quantity_kind</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design/downcasting.html">The Downcasting Facility</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/hello_units.html">hello_units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/avg_speed.html">avg_speed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/box_example.html">box_example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/unknown_dimension.html">unknown_dimension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/measurement.html">measurement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/linear_algebra.html">linear_algebra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/foot_pound_second.html">foot_pound_second</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/custom_systems.html">custom_systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/glide_computer.html">glide_computer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/capacitor_time_curve.html">capacitor_time_curve</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/clcpp_response.html">clcpp_response</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/conversion_factor.html">conversion_factor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/kalman_filter-alpha_beta_filter_example2.html">kalman_filter-alpha_beta_filter_example2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/total_energy.html">total_energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/kalman_filter.html">Kalman Filter Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_representation.html">Custom Representation Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_systems.html">Custom Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_utilities.html">Custom Utilites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Installation And Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#repository-structure-and-dependencies">Repository Structure and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#obtaining-dependencies">Obtaining Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#build-options">Build Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#installation-and-reuse">Installation and Reuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#contributing-or-just-building-all-the-tests-examples-and-documentation">Contributing (or just building all the tests, examples, and documentation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#packaging">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#uploading-mp-units-package-to-the-conan-server">Uploading <strong>mp-units</strong> Package to the Conan Server</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
@@ -284,7 +280,6 @@ compilers. The following compilers (or newer) are supported:</p>
 <li class="toctree-l1"><a class="reference internal" href="reference/systems.html">Systems</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reference/systems/generic.html">Generic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/systems/isq.html">International System of Quantities (ISQ)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/systems/data.html">Data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reference/random.html">Random</a></li>
@@ -305,7 +300,7 @@ this ASAP.</p>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>

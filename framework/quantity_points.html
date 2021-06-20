@@ -4,15 +4,18 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quantity Points &mdash; mp-units 0.7.0 documentation</title>
+  <title>Quantity Points &mdash; mp-units 0.8.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
@@ -28,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -62,7 +66,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.8.0
               </div>
             
           
@@ -91,7 +95,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../framework.html">Framework Basics</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic_concepts.html">Basic Concepts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantities.html">Quantities</a></li>
@@ -111,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../use_cases.html">Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../design.html">Design Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation And Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference:</span></p>
@@ -192,16 +196,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="quantity-points">
+  <section id="quantity-points">
 <h1>Quantity Points<a class="headerlink" href="#quantity-points" title="Permalink to this headline">¶</a></h1>
 <p>A quantity point is an absolute quantity with respect to zero
 (which represents some origin) and is represented in the library with a
-<a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4I_9Dimension_6UnitOfI1DE_13QuantityValueEN5units14quantity_pointE" title="units::quantity_point"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point</span></code></a> class template.</p>
-<div class="section" id="construction">
+<a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4I_9Dimension_6UnitOfI1DE_14RepresentationEN5units14quantity_pointE" title="units::quantity_point"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point</span></code></a> class template.</p>
+<section id="construction">
 <h2>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">¶</a></h2>
-<p>To create the quantity point object from a <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4I_9Dimension_6UnitOfI1DE_13QuantityValueEN5units8quantityE" title="units::quantity"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity</span></code></a> we just have to pass
-the value to the <a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4I_9Dimension_6UnitOfI1DE_13QuantityValueEN5units14quantity_pointE" title="units::quantity_point"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point</span></code></a> class template explicit constructor:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">quantity_point</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">dim_length</span><span class="p">,</span> <span class="n">si</span><span class="o">::</span><span class="n">kilometre</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">(</span><span class="mi">123</span><span class="n">_q_km</span><span class="p">);</span>
+<p>To create the quantity point object from a <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4I_9Dimension_6UnitOfI1DE_14RepresentationEN5units8quantityE" title="units::quantity"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity</span></code></a> we just have to pass
+the value to the <a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4I_9Dimension_6UnitOfI1DE_14RepresentationEN5units14quantity_pointE" title="units::quantity_point"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point</span></code></a> class template explicit constructor:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">quantity_point</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">dim_length</span><span class="p">,</span> <span class="n">si</span><span class="o">::</span><span class="n">kilometre</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">(</span><span class="mi">123</span> <span class="o">*</span> <span class="n">km</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -212,14 +216,14 @@ a quantity only via
 This is why the code below using
 <a class="reference external" href="https://en.cppreference.com/w/cpp/language/copy_initialization">copy initialization</a>
 <strong>does not compile</strong>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">quantity_point</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">dim_length</span><span class="p">,</span> <span class="n">si</span><span class="o">::</span><span class="n">kilometre</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">123</span><span class="n">_q_km</span><span class="p">;</span>  <span class="c1">// ERROR</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">quantity_point</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">dim_length</span><span class="p">,</span> <span class="n">si</span><span class="o">::</span><span class="n">kilometre</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">123</span> <span class="o">*</span> <span class="n">km</span><span class="p">;</span>  <span class="c1">// ERROR</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="differences-to-quantity">
+</section>
+<section id="differences-to-quantity">
 <h2>Differences To Quantity<a class="headerlink" href="#differences-to-quantity" title="Permalink to this headline">¶</a></h2>
-<p>Unlike <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4I_9Dimension_6UnitOfI1DE_13QuantityValueEN5units8quantityE" title="units::quantity"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity</span></code></a>, the library provides:</p>
+<p>Unlike <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4I_9Dimension_6UnitOfI1DE_14RepresentationEN5units8quantityE" title="units::quantity"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity</span></code></a>, the library provides:</p>
 <ul class="simple">
 <li><p>no helper aliases for quantity points, such as <code class="docutils literal notranslate"><span class="pre">length_point</span></code>,</p></li>
 <li><p>no UDLs for quantity points,</p></li>
@@ -228,8 +232,8 @@ This is why the code below using
 <li><p>a more limited set of operations on quantity points
 (see the <a class="reference internal" href="dimensions.html#quantity-points"><span class="std std-ref">Quantity Points</span></a> chapter)</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

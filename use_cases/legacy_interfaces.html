@@ -4,15 +4,18 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Working with Legacy Interfaces &mdash; mp-units 0.7.0 documentation</title>
+  <title>Working with Legacy Interfaces &mdash; mp-units 0.8.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
@@ -28,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -62,7 +66,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.8.0
               </div>
             
           
@@ -91,7 +95,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../framework.html">Framework Basics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../use_cases.html">Use Cases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unknown_dimensions.html">Working with Unknown Dimensions and Their Units</a></li>
@@ -105,6 +108,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../design.html">Design Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation And Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference:</span></p>
@@ -186,15 +190,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="working-with-legacy-interfaces">
+  <section id="working-with-legacy-interfaces">
 <h1>Working with Legacy Interfaces<a class="headerlink" href="#working-with-legacy-interfaces" title="Permalink to this headline">¶</a></h1>
 <p>In case we are working with a legacy/unsafe interface we may be forced to
-extract the <a class="reference internal" href="../glossary.html#term-value-of-a-quantity"><span class="xref std std-term">value of a quantity</span></a> with <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4NK5units8quantity5countEv" title="units::quantity::count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity::count()</span></code></a>
+extract the <a class="reference internal" href="../glossary.html#term-value-of-a-quantity"><span class="xref std std-term">value of a quantity</span></a> with <a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4NR5units8quantity6numberEv" title="units::quantity::number"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity::number()</span></code></a>
 (in addition
-to the quantity of a <a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4I_9Dimension_6UnitOfI1DE_13QuantityValueEN5units14quantity_pointE" title="units::quantity_point"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point</span></code></a> with <a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4NK5units14quantity_point8relativeEv" title="units::quantity_point::relative"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity_point::relative()</span></code></a>,
-or the quantity of a <a class="reference internal" href="../reference/core/types/quantity_kind.html#_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_13QuantityValueEN5units13quantity_kindE" title="units::quantity_kind"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_kind</span></code></a> with <a class="reference internal" href="../reference/core/types/quantity_kind.html#_CPPv4NK5units13quantity_kind6commonEv" title="units::quantity_kind::common"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity_kind::common()</span></code></a>,
-or the quantity kind of a <a class="reference internal" href="../reference/core/types/quantity_point_kind.html#_CPPv4I_9PointKind_6UnitOfIN2PK9dimensionEE_13QuantityValueEN5units19quantity_point_kindE" title="units::quantity_point_kind"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point_kind</span></code></a>
-with <a class="reference internal" href="../reference/core/types/quantity_point_kind.html#_CPPv4NK5units19quantity_point_kind8relativeEv" title="units::quantity_point_kind::relative"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity_point_kind::relative()</span></code></a>)
+to the quantity of a <a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4I_9Dimension_6UnitOfI1DE_14RepresentationEN5units14quantity_pointE" title="units::quantity_point"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point</span></code></a> with <a class="reference internal" href="../reference/core/types/quantity_point.html#_CPPv4NR5units14quantity_point8relativeEv" title="units::quantity_point::relative"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity_point::relative()</span></code></a>,
+or the quantity of a <a class="reference internal" href="../reference/core/types/quantity_kind.html#_CPPv4I_4Kind_6UnitOfIN1K9dimensionEE_14RepresentationEN5units13quantity_kindE" title="units::quantity_kind"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_kind</span></code></a> with <a class="reference internal" href="../reference/core/types/quantity_kind.html#_CPPv4NR5units13quantity_kind6commonEv" title="units::quantity_kind::common"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity_kind::common()</span></code></a>,
+or the quantity kind of a <a class="reference internal" href="../reference/core/types/quantity_point_kind.html#_CPPv4I_9PointKind_6UnitOfIN2PK9dimensionEE_14RepresentationEN5units19quantity_point_kindE" title="units::quantity_point_kind"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_point_kind</span></code></a>
+with <a class="reference internal" href="../reference/core/types/quantity_point_kind.html#_CPPv4NR5units19quantity_point_kind8relativeEv" title="units::quantity_point_kind::relative"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">quantity_point_kind::relative()</span></code></a>)
 and pass it to the library’s output:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">legacy.h</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
@@ -221,14 +225,14 @@ and pass it to the library’s output:</p>
 <span class="kt">void</span> <span class="nf">print_eta</span><span class="p">(</span><span class="n">Length</span> <span class="k">auto</span> <span class="n">d</span><span class="p">,</span> <span class="n">Time</span> <span class="k">auto</span> <span class="n">t</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">Speed</span> <span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n">avg_speed</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
-  <span class="n">legacy</span><span class="o">::</span><span class="n">print_eta</span><span class="p">(</span><span class="n">quantity_cast</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre_per_second</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">).</span><span class="n">count</span><span class="p">());</span>
+  <span class="n">legacy</span><span class="o">::</span><span class="n">print_eta</span><span class="p">(</span><span class="n">quantity_cast</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre_per_second</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">).</span><span class="n">number</span><span class="p">());</span>
 <span class="p">}</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="n">QuantityPoint</span> <span class="n">QP</span><span class="o">&gt;</span>
   <span class="k">requires</span> <span class="n">Length</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">QP</span><span class="o">::</span><span class="n">quantity_type</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">set_path_position</span><span class="p">(</span><span class="n">QP</span> <span class="n">p</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">legacy</span><span class="o">::</span><span class="n">set_path_position</span><span class="p">(</span><span class="n">quantity_point_cast</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">).</span><span class="n">relative</span><span class="p">().</span><span class="n">count</span><span class="p">());</span>
+  <span class="n">legacy</span><span class="o">::</span><span class="n">set_path_position</span><span class="p">(</span><span class="n">quantity_point_cast</span><span class="o">&lt;</span><span class="n">si</span><span class="o">::</span><span class="n">metre</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">).</span><span class="n">relative</span><span class="p">().</span><span class="n">number</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -236,9 +240,9 @@ and pass it to the library’s output:</p>
 <p class="admonition-title">Important</p>
 <p>When dealing with a quantity of an unknown <code class="docutils literal notranslate"><span class="pre">auto</span></code> type please remember
 to always use <code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity_cast</span></code> to cast it to a desired unit before calling
-<a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4NK5units8quantity5countEv" title="units::quantity::count"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity::count()</span></code></a> and passing the raw value to the legacy/unsafe interface.</p>
+<a class="reference internal" href="../reference/core/types/quantity.html#_CPPv4NR5units8quantity6numberEv" title="units::quantity::number"><code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">quantity::number()</span></code></a> and passing the raw value to the legacy/unsafe interface.</p>
 </div>
-</div>
+</section>
 
 
            </div>

@@ -4,15 +4,18 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The Downcasting Facility &mdash; mp-units 0.7.0 documentation</title>
+  <title>The Downcasting Facility &mdash; mp-units 0.8.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
@@ -28,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -38,7 +42,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Examples" href="../examples.html" />
-    <link rel="prev" title="quantity" href="quantity.html" /> 
+    <link rel="prev" title="quantity_kind" href="quantity_kind.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -62,7 +66,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.8.0
               </div>
             
           
@@ -91,12 +95,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../framework.html">Framework Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../use_cases.html">Use Cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../design.html">Design Deep Dive</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="directories.html">Library Directories Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quantity.html">quantity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity_kind.html">quantity_kind</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The Downcasting Facility</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#problem-statement">Problem statement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How it works?</a></li>
@@ -105,6 +109,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation And Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference:</span></p>
@@ -186,9 +191,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="the-downcasting-facility">
+  <section id="the-downcasting-facility">
 <h1>The Downcasting Facility<a class="headerlink" href="#the-downcasting-facility" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="problem-statement">
+<section id="problem-statement">
 <h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <p>Most of the C++ libraries in the world use template aliases to provide a friendly name for a
 developer. Unfortunately, such aliases are quickly lost in a compilation process and as a
@@ -228,8 +233,8 @@ ourselves into problems. The library’s framework does not know how to switch f
 instantiation of a <code class="docutils literal notranslate"><span class="pre">derived_dimension_base</span></code> class template that was generated as a result
 of dimensional calculation to a nicely named child class assigned by the user for this
 instantiation.</p>
-</div>
-<div class="section" id="how-it-works">
+</section>
+<section id="how-it-works">
 <h2>How it works?<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
 <p>To support this <strong>mp-units</strong> library introduces a new downcasting facility implemented fully
 as a library feature. It creates 1-to-1 link between a long class template instantiation and a
@@ -318,8 +323,8 @@ otherwise it works like a regular identity type trait returning a provided base 
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -332,7 +337,7 @@ otherwise it works like a regular identity type trait returning a provided base 
         <a href="../examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quantity.html" class="btn btn-neutral float-left" title="quantity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quantity_kind.html" class="btn btn-neutral float-left" title="quantity_kind" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
