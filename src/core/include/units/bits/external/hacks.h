@@ -71,7 +71,7 @@
 #include <concepts/compare.hpp>
 #include <range/v3/functional/comparisons.hpp>
 
-#if UNITS_COMP_CLANG == 12
+#if UNITS_LIBCXX < 13'000
 
 #include <concepts/concepts.hpp>
 #include <range/v3/iterator.hpp>
@@ -110,7 +110,7 @@ using concepts::three_way_comparable;
 using concepts::three_way_comparable_with;
 using ::ranges::compare_three_way;
 
-#if UNITS_COMP_CLANG == 12
+#if UNITS_LIBCXX < 13'000
 
 // concepts
 using concepts::common_with;
